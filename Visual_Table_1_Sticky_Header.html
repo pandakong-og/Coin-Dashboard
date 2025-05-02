@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Visual Table</title>
+    <style>
+        body { background-color: #2c2c2c; color: #00ff00; font-family: Arial; }
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        .table-title {
+            color: #ffffff;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 5px;
+            background-color: #3a3a3a;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 8px;
+            border: 1px solid #444;
+            z-index: 2;
+        }
+        td {
+            text-align: center;
+            padding: 8px;
+            background-color: #2c2c2c;
+            color: #00ff00;
+            border: 1px solid #444;
+        }
+        td.coin-name {
+            color: #ffffff !important;
+            font-weight: bold;
+        }
+        td.low-funding-coin {
+            color: #ffcc00 !important; /* Highlight low funding coins in yellow */
+            font-weight: bold;
+            position: relative;
+        }
+        td.low-funding-coin::after {
+            content: "★"; /* Add a star indicator */
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 10px;
+            color: #ffcc00;
+        }
+        .legend {
+            margin: 10px 0;
+            color: #aaa;
+            font-size: 12px;
+        }
+        .legend span {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Generated on 2025-05-02 14:59:23</div>
+    <div class="table-title">High Vol + Top Gainer + Low Funding</div>
+    <div class="legend"><span>★</span> Coins from Low Funding list</div>
+    <div class="table-container">
+        <table>
+            <thead><th>Coin</th><th>High Vol 15m</th><th>High Vol 1H</th><th>High Vol 4H</th><th>Top Gainer 15m</th><th>Top Gainer 1H</th><th>Low Funding</th></thead>
+            <tbody><tr><td class="coin-name low-funding-coin">HAEDAL</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">MOVE</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">PUNDIX</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">STO</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td>🟢</td></tr><tr><td class="coin-name">1000BONK</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">1000NEIROCTO</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">1000PEPE</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">1000TURBO</td><td>🟢</td><td></td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">AERGO</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">BOBA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">BROCCOLI</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CHILLGUY</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">CLANKER</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CRV</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CVX</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">ENA</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">FARTCOIN</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">HYPE</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">HYPER</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">LINK</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">LTC</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">MEMEFI</td><td>🟢</td><td></td><td></td><td></td><td>🟢</td><td></td></tr><tr><td class="coin-name">ONDO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">PENGU</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">POPCAT</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td></tr><tr><td class="coin-name">ROSE</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">RSS3</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">SONIC</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">SUI</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">TAO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">TRUMP</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">VINE</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">VIRTUAL</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">VRA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">WIF</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">WLD</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">ZBCN</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">ZETA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr></tbody>
+        </table>
+    </div>
+</body>
+</html>

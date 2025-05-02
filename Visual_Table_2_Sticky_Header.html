@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Visual Table</title>
+    <style>
+        body { background-color: #2c2c2c; color: #00ff00; font-family: Arial; }
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        .table-title {
+            color: #ffffff;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 5px;
+            background-color: #3a3a3a;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 8px;
+            border: 1px solid #444;
+            z-index: 2;
+        }
+        td {
+            text-align: center;
+            padding: 8px;
+            background-color: #2c2c2c;
+            color: #00ff00;
+            border: 1px solid #444;
+        }
+        td.coin-name {
+            color: #ffffff !important;
+            font-weight: bold;
+        }
+        td.low-funding-coin {
+            color: #ffcc00 !important; /* Highlight low funding coins in yellow */
+            font-weight: bold;
+            position: relative;
+        }
+        td.low-funding-coin::after {
+            content: "★"; /* Add a star indicator */
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 10px;
+            color: #ffcc00;
+        }
+        .legend {
+            margin: 10px 0;
+            color: #aaa;
+            font-size: 12px;
+        }
+        .legend span {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Generated on 2025-05-02 14:59:23</div>
+    <div class="table-title">Coins with Multiple OB/OS</div>
+    
+    <div class="table-container">
+        <table>
+            <thead><th>Coin</th><th>OB 4H</th><th>OB 1H</th><th>OB 30m</th><th>OB 15m</th><th>OS 4H</th><th>OS 1H</th><th>OS 30m</th><th>OS 15m</th></thead>
+            <tbody><tr><td class="coin-name">PENGU</td><td></td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SEND</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">RENDER</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">CHILLGUY</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">OM</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td></tr><tr><td class="coin-name">FLOCK</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">FORM</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">XVS</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SIREN</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">LOOKS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">ANIME</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">NS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">STO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+        </table>
+    </div>
+</body>
+</html>
