@@ -41,9 +41,42 @@
             color: #00ff00;
             border: 1px solid #444;
         }
+        /* Table 1 column group styling */
+        th.highvol-column {
+            background-color: #2c2c2c; /* Removed the blue tint */
+        }
+        th.highvol-last {
+            border-right: 3px solid #555; /* Thicker right border for last column in group */
+        }
+        th.topgainer-column {
+            background-color: #2c2c2c; /* Removed the green tint */
+        }
+        th.topgainer-last {
+            border-right: 3px solid #555; /* Thicker right border for last column in group */
+        }
+        th.lowfunding-column {
+            background-color: #2c2c2c; /* Removed the yellow tint */
+        }
+        /* Matching cell styling */
+        td.highvol-cell {
+            background-color: #2c2c2c; /* Removed the darker blue */
+        }
+        td.highvol-last {
+            border-right: 3px solid #555; /* Thicker right border */
+        }
+        td.topgainer-cell {
+            background-color: #2c2c2c; /* Removed the darker green */
+        }
+        td.topgainer-last {
+            border-right: 3px solid #555; /* Thicker right border */
+        }
+        td.lowfunding-cell {
+            background-color: #2c2c2c; /* Removed the darker yellow */
+        }
         td.coin-name {
             color: #ffffff !important;
             font-weight: bold;
+            text-align: left;
         }
         td.low-funding-coin {
             color: #ffcc00 !important; /* Highlight low funding coins in yellow */
@@ -62,10 +95,33 @@
             margin: 10px 0;
             color: #aaa;
             font-size: 12px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        .legend span {
-            color: #ffcc00;
-            font-weight: bold;
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        .highvol-legend {
+            background-color: #2c2c2c;
+            border: 1px solid #555;
+        }
+        .topgainer-legend {
+            background-color: #2c2c2c;
+            border: 1px solid #555;
+        }
+        .lowfunding-legend {
+            background-color: #2c2c2c;
+            border: 1px solid #555;
         }
         /* Navigation buttons styles */
         .navigation {
@@ -98,11 +154,11 @@
 
     <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Latest Data as of 2025-05-02 15:30:00</div>
     <div class="table-title">High Vol + Top Gainer + Low Funding</div>
-    <div class="legend"><span>★</span> Coins from Low Funding list</div>
+    <div class="legend"><div class="legend-item"><span>High Volume | </span></div><div class="legend-item"><span>Top Gainers | </span></div><div class="legend-item"><span>Low Funding</span></div><div class="legend-item" style="margin-left: 20px;"><span style="color: #ffcc00; font-weight: bold;">★</span><span>Coins from Low Funding list</span></div></div>
     <div class="table-container">
         <table>
-            <thead><th>Coin</th><th>High Vol 15m</th><th>High Vol 1H</th><th>High Vol 4H</th><th>Top Gainer 15m</th><th>Top Gainer 1H</th><th>Low Funding</th></thead>
-            <tbody><tr><td class="coin-name low-funding-coin">HAEDAL</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">MOVE</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">PUNDIX</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name low-funding-coin">STO</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td>🟢</td></tr><tr><td class="coin-name">1000BONK</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">1000NEIROCTO</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">1000PEPE</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">1000TURBO</td><td>🟢</td><td></td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">AERGO</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">BOBA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">BROCCOLI</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CHILLGUY</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">CLANKER</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CRV</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">CVX</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">ENA</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">FARTCOIN</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">HYPE</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">HYPER</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">LINK</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">LTC</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">MEMEFI</td><td>🟢</td><td></td><td></td><td></td><td>🟢</td><td></td></tr><tr><td class="coin-name">ONDO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">PENGU</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">POPCAT</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td></tr><tr><td class="coin-name">ROSE</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">RSS3</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">SONIC</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">SUI</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">TAO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">TRUMP</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">VINE</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">VIRTUAL</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td></tr><tr><td class="coin-name">VRA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">WIF</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">WLD</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">ZBCN</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">ZETA</td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr></tbody>
+            <thead><th>Coin</th><th class="highvol-column">High Vol 15m</th><th class="highvol-column">High Vol 1H</th><th class="highvol-column highvol-last">High Vol 4H</th><th class="topgainer-column">Top Gainer 15m</th><th class="topgainer-column topgainer-last">Top Gainer 1H</th><th class="lowfunding-column">Low Funding</th></thead>
+            <tbody><tr><td class="coin-name low-funding-coin">HAEDAL</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell">🟢</td></tr><tr><td class="coin-name low-funding-coin">MOVE</td><td class="highvol-cell"></td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell">🟢</td></tr><tr><td class="coin-name low-funding-coin">PUNDIX</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell">🟢</td></tr><tr><td class="coin-name low-funding-coin">STO</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell">🟢</td></tr><tr><td class="coin-name">1000BONK</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">1000NEIROCTO</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">1000PEPE</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">1000TURBO</td><td class="highvol-cell">🟢</td><td class="highvol-cell"></td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">AERGO</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">BOBA</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">BROCCOLI</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">CHILLGUY</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">CLANKER</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">CRV</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">CVX</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">ENA</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">FARTCOIN</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">HYPE</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">HYPER</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">LINK</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">LTC</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">MEMEFI</td><td class="highvol-cell">🟢</td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">ONDO</td><td class="highvol-cell"></td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">PENGU</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">POPCAT</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">ROSE</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">RSS3</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">SONIC</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">SUI</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">TAO</td><td class="highvol-cell"></td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">TRUMP</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">VINE</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">VIRTUAL</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">VRA</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">WIF</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last">🟢</td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">WLD</td><td class="highvol-cell">🟢</td><td class="highvol-cell">🟢</td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell"></td><td class="topgainer-cell topgainer-last"></td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">ZBCN</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr><tr><td class="coin-name">ZETA</td><td class="highvol-cell"></td><td class="highvol-cell"></td><td class="highvol-cell highvol-last"></td><td class="topgainer-cell">🟢</td><td class="topgainer-cell topgainer-last">🟢</td><td class="lowfunding-cell"></td></tr></tbody>
         </table>
     </div>
     

@@ -34,6 +34,23 @@
             border: 1px solid #444;
             z-index: 2;
         }
+        /* Special styling for OB/OS columns */
+        th.ob-column {
+            background-color: #3c2c2c; /* Red tint for OB (Overbought) columns */
+            border-right: 1px solid #555;
+        }
+        th.os-column {
+            background-color: #2c3c2c; /* Green tint for OS (Oversold) columns */
+            border-left: 1px solid #555;
+        }
+        /* Add a thicker border for the last OB column to create separation */
+        th.ob-column:last-of-type, td.ob-cell:last-of-type {
+            border-right: 3px solid #555;
+        }
+        /* Add a thicker border for the first OS column to create separation */
+        th.os-column:first-of-type, td.os-cell:first-of-type {
+            border-left: 3px solid #555;
+        }
         td {
             text-align: center;
             padding: 8px;
@@ -41,9 +58,36 @@
             color: #00ff00;
             border: 1px solid #444;
         }
+        /* Special styling for OB/OS cells to match headers */
+        td.ob-cell {
+            background-color: #302c24; /* Darker red background for OB (Overbought) cells */
+        }
+        td.os-cell {
+            background-color: #2c3024; /* Darker green background for OS (Oversold) cells */
+        }
+        /* Column group headers */
+        .col-group {
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            color: #ffffff;
+            border-bottom: 1px solid #444;
+        }
+        .ob-group {
+            background-color: #3c2c2c;
+        }
+        .os-group {
+            background-color: #2c3c2c;
+        }
         td.coin-name {
             color: #ffffff !important;
             font-weight: bold;
+            text-align: left;
+            /* Keep coin name visible when scrolling horizontally */
+            position: sticky;
+            left: 0;
+            background-color: #2c2c2c;
+            z-index: 1;
         }
         /* Navigation buttons styles */
         .navigation {
@@ -65,6 +109,32 @@
         .nav-button:hover {
             background-color: #444;
         }
+        /* Legend for Table 2 */
+        .legend {
+            margin: 10px 0;
+            color: #aaa;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        .ob-legend {
+            background-color: #3c2c2c; /* Red tint for Overbought */
+        }
+        .os-legend {
+            background-color: #2c3c2c; /* Green tint for Oversold */
+        }
     </style>
 </head>
 <body>
@@ -77,10 +147,22 @@
     <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Latest Data as of 2025-05-02 15:30:00</div>
     <div class="table-title">Coins with Multiple OB/OS</div>
     
+    <!-- Add a legend explaining the column colors -->
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-color ob-legend"></span>
+            <span>Overbought (OB)</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color os-legend"></span>
+            <span>Oversold (OS)</span>
+        </div>
+    </div>
+    
     <div class="table-container">
         <table>
-            <thead><th>Coin</th><th>OB 4H</th><th>OB 1H</th><th>OB 30m</th><th>OB 15m</th><th>OS 4H</th><th>OS 1H</th><th>OS 30m</th><th>OS 15m</th></thead>
-            <tbody><tr><td class="coin-name">PENGU</td><td></td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SEND</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">RENDER</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">CHILLGUY</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">OM</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td></tr><tr><td class="coin-name">FLOCK</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">FORM</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">XVS</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SIREN</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">LOOKS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">ANIME</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">NS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">STO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+            <thead><th>Coin</th><th class="ob-column">OB 4H</th><th class="ob-column">OB 1H</th><th class="ob-column">OB 30m</th><th class="ob-column">OB 15m</th><th class="os-column">OS 4H</th><th class="os-column">OS 1H</th><th class="os-column">OS 30m</th><th class="os-column">OS 15m</th></thead>
+            <tbody><tr><td class="coin-name">PENGU</td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">SEND</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td><td class="os-cell">🟢</td></tr><tr><td class="coin-name">RENDER</td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">CHILLGUY</td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">OM</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">FLOCK</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td><td class="os-cell"></td></tr><tr><td class="coin-name">FORM</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td></tr><tr><td class="coin-name">XVS</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">SIREN</td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">LOOKS</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td></tr><tr><td class="coin-name">ANIME</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr><tr><td class="coin-name">NS</td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell">🟢</td><td class="os-cell">🟢</td></tr><tr><td class="coin-name">STO</td><td class="ob-cell"></td><td class="ob-cell">🟢</td><td class="ob-cell">🟢</td><td class="ob-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td><td class="os-cell"></td></tr></tbody>
         </table>
     </div>
     
