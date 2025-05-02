@@ -45,32 +45,36 @@
             color: #ffffff !important;
             font-weight: bold;
         }
-        td.low-funding-coin {
-            color: #ffcc00 !important; /* Highlight low funding coins in yellow */
-            font-weight: bold;
-            position: relative;
+        /* Navigation buttons styles */
+        .navigation {
+            margin: 15px auto;
+            padding: 10px;
+            text-align: center;
         }
-        td.low-funding-coin::after {
-            content: "★"; /* Add a star indicator */
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            font-size: 10px;
-            color: #ffcc00;
+        .nav-button {
+            display: inline-block;
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            padding: 8px 15px;
+            margin: 0 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
-        .legend {
-            margin: 10px 0;
-            color: #aaa;
-            font-size: 12px;
-        }
-        .legend span {
-            color: #ffcc00;
-            font-weight: bold;
+        .nav-button:hover {
+            background-color: #444;
         }
     </style>
 </head>
 <body>
-    <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Generated on 2025-05-02 14:59:23</div>
+    <!-- Add navigation buttons at the top -->
+    <div class="navigation">
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="Visual_Table_1_Sticky_Header.html" class="nav-button">View High Vol Table</a>
+    </div>
+
+    <div style='color:#aaa; text-align:left; font-size:12px; margin:10px;'>Generated on 2025-05-02 15:36:21</div>
     <div class="table-title">Coins with Multiple OB/OS</div>
     
     <div class="table-container">
@@ -78,6 +82,12 @@
             <thead><th>Coin</th><th>OB 4H</th><th>OB 1H</th><th>OB 30m</th><th>OB 15m</th><th>OS 4H</th><th>OS 1H</th><th>OS 30m</th><th>OS 15m</th></thead>
             <tbody><tr><td class="coin-name">PENGU</td><td></td><td>🟢</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SEND</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">RENDER</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">CHILLGUY</td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">OM</td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td></tr><tr><td class="coin-name">FLOCK</td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td><td></td></tr><tr><td class="coin-name">FORM</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">XVS</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">SIREN</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">LOOKS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">ANIME</td><td></td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td></tr><tr><td class="coin-name">NS</td><td></td><td></td><td></td><td></td><td></td><td></td><td>🟢</td><td>🟢</td></tr><tr><td class="coin-name">STO</td><td></td><td>🟢</td><td>🟢</td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
         </table>
+    </div>
+    
+    <!-- Add navigation buttons at the bottom -->
+    <div class="navigation" style="margin-top: 20px;">
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="Visual_Table_1_Sticky_Header.html" class="nav-button">View High Vol Table</a>
     </div>
 </body>
 </html>
